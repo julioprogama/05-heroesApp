@@ -1,1 +1,43 @@
-<p>agregar works!</p>
+<div fxLayout="column">
+    <mat-form-field >
+        <mat-label>Id</mat-label>
+        <input type="text"
+            placeholder="Ingresa el id del héroe"
+            aria-label="text" 
+            matInput [(ngModel)]="heroes.id">
+    </mat-form-field>
+</div>  
+<div fxLayout="column">
+    <mat-form-field >
+        <mat-label>Super Heroe</mat-label>
+        <input type="text" 
+            placeholder="Ingresa Nombre del Super Heroe" aria-label="text"
+            matInput [(ngModel)]="heroes.superhero"
+            >
+    </mat-form-field>
+</div>
+<div fxLayout="column">
+    <mat-form-field class="example-full-width">
+        <mat-label>Publicacion</mat-label>
+        <input type="text" matInput [(ngModel)]="heroes.publisher" placeholder="Editor" value="">
+    </mat-form-field>
+</div>
+<div fxLayout="column">
+    <mat-form-field class="example-full-width">
+        <mat-label>Alter ego</mat-label>
+        <input type="text" matInput [(ngModel)]="heroes.alter_ego" placeholder="Alter ego" value="">
+    </mat-form-field>
+</div>
+<div fxLayout="column">
+    <mat-form-field class="example-full-width">
+        <mat-label>Primera aparición</mat-label>
+        <input type="text" matInput [(ngModel)]="heroes.first_appearance" placeholder="Primera aparición" value="">
+    </mat-form-field>
+</div>
+<div fxLayout="column">
+    <mat-form-field class="example-full-width">
+        <mat-label>characters</mat-label>
+        <input type="text" matInput [(ngModel)]="heroes.characters" placeholder="characters" value="">
+    </mat-form-field>
+</div>
+

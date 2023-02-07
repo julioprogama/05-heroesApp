@@ -20,20 +20,20 @@ export class AgregarComponent {
   characters:string="";
   
   private _historial !:Publisher;
-  public search : Gif[] = [];
+  /* public search : Gif[] = []; */
   
   get historial(): string[]{return [...this._historial];}
 
   constructor(private heroeService: HeroesService){ }
   
-  get Publisher(){
-    
-  }
+  /* get Publisher(){
+
+  } */
 
   setHero(){
     this.heroes.id = this.id;
     this.heroes.alter_ego = this.alter_ego;
-    this.heroes.publisher = this.publisher;
+    //this.heroes.publisher = this.publisher;
     this.heroes.characters = this.characters;
 
   }
