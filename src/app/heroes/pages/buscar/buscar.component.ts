@@ -12,7 +12,7 @@ import { HeroesService } from '../../services/heroes.service';
 export class BuscarComponent {
   termino: string = '';
   heroes: Heroe[] = [];
-  heroe!: Heroe ;
+  heroe!: Heroe;
 
   mensaje: boolean = true;
 
@@ -30,9 +30,6 @@ export class BuscarComponent {
   opcionSelecionada (event: MatAutocompleteSelectedEvent){
     const hero:Heroe = event.option.value;
     this.termino = hero.superhero;
-    if (this.heroes){
-      this.heroeService.getHeroeId( hero.id! ).subscribe( heroe => this.heroe = heroe );
-    }
-    
+    this.heroeService.getHeroeId( hero.id! ).subscribe( heroe => this.heroe = heroe );
   }
 }

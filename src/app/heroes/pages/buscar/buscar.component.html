@@ -22,10 +22,9 @@
     </div>
 </div>
 
-<ng-container *ngIf="heroe; else elseTemplate">
-    <div fxLayout="row"  fxLayout.xs="column"  fxLayoutGap="30px" >
-        <app-heroe [heroes]="heroe" ></app-heroe>
-    </div>
+<div  *ngIf="heroeseleccionado" fxLayout="row"  fxLayout.xs="column"  fxLayoutGap="30px" >
+    <app-heroe [heroes]="heroeseleccionado" ></app-heroe>
+</div>
 </ng-container>
 <ng-template #elseTemplate>
     <div>
