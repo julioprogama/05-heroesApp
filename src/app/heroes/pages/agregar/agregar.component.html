@@ -1,44 +1,69 @@
-<div fxLayout="column">
-    <mat-form-field >
-        <mat-label>Id</mat-label>
-        <input type="text"
-            placeholder="Ingresa el id del héroe"
-            aria-label="text" 
-            matInput [(ngModel)]="heroes.id">
-    </mat-form-field>
-</div>  
-<div fxLayout="column">
-    <mat-form-field >
-        <mat-label>Super Heroe</mat-label>
-        <input type="text" 
-            placeholder="Ingresa Nombre del Super Heroe" aria-label="text"
-            matInput [(ngModel)]="heroes.superhero"
-            >
-    </mat-form-field>
-</div>
-<div fxLayout="column">
-    <mat-form-field class="example-full-width">
-        <mat-label>Publicacion</mat-label>
-        <input type="text" matInput [(ngModel)]="heroes.publisher" placeholder="Editor" value="">
-    </mat-form-field>
-</div>
-<div fxLayout="column">
-    <mat-form-field class="example-full-width">
-        <mat-label>Alter ego</mat-label>
-        <input type="text" matInput [(ngModel)]="heroes.alter_ego" placeholder="Alter ego" value="">
-    </mat-form-field>
-</div>
-<div fxLayout="column">
-    <mat-form-field class="example-full-width">
-        <mat-label>Primera aparición</mat-label>
-        <input type="text"  aria-label="text"
-            matInput [(ngModel)]="heroes.first_appearance" placeholder="Primera aparición" >
-    </mat-form-field>
-</div>
-<div fxLayout="column">
-    <mat-form-field class="example-full-width">
-        <mat-label>characters</mat-label>
-        <input type="text" matInput [(ngModel)]="heroes.characters" placeholder="characters" value="">
-    </mat-form-field>
-</div>
+<h1>
+    {{ (heroe.id) ? 'Editar'  : 'Nuevo' }} héroe 
+    {{heroe.superhero}} 
+</h1>
 
+<div fxLayout="row"  xLayout.xs="column" fxLayoutGap="40px">
+
+    <div fxFlex="50" fxLayout="column">
+
+        <div fxLayout="row"
+             fxLayout.xs="column"
+             fxLayoutGap="10px">
+
+            <mat-form-field fxFlex="50" >
+                <mat-label>Super Heroe</mat-label>
+                <input type="text" matInput 
+                        placeholder="Ingresa Nombre" aria-label="text"
+                        required [(ngModel)]="heroe.superhero" >
+            </mat-form-field>
+    
+            <mat-form-field fxFlex="50" >
+                <mat-label>Alter ego</mat-label>
+                <input type="text" matInput placeholder="Alter ego" [(ngModel)]="heroe.alter_ego" required>
+            </mat-form-field>
+
+        </div>
+        <mat-form-field >
+            <mat-label>Primera aparición</mat-label>
+            <input type="text"  aria-label="text"
+                matInput  placeholder="Primera aparición" [(ngModel)]="heroe.first_appearance" required>
+        </mat-form-field>
+        <mat-form-field >
+            <mat-label>Personajes</mat-label>
+            <input type="text" aria-label="text"
+                matInput  placeholder="Primera aparición" [(ngModel)]="heroe.characters" required>
+        </mat-form-field>
+        <mat-form-field >
+            <mat-label>Publicacion</mat-label>
+            <mat-select [(ngModel)]="heroe.publisher" required>
+                <mat-option *ngFor="let item of publishers"  [value]="item.id" >  {{item.desc}}  </mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field >
+            <mat-label>Foto Url</mat-label>
+            <input type="text"  aria-label="text"
+                matInput  placeholder="Url" [(ngModel)]="heroe.alt_img">
+        </mat-form-field>
+        <br>
+        <div fxLayoutGap="10px" >
+            <button mat-raised-button color="primary" (click)="agregar()"> 
+                {{ (heroe.id) ? 'Actualizar'  : 'Crear' }} 
+                <mat-icon>edit</mat-icon>
+            </button>
+            <span class="spacer"></span>
+            <button *ngIf="heroe.id"
+                 mat-raised-button color="warn" (click)="borrar()"> 
+                <mat-icon>remove</mat-icon>
+                borrar
+            </button>
+
+        </div>
+    </div>
+    <div fxFlex="50" fxLayoutGap="40px">
+        <mat-card >
+            <img mat-card-image [src]="heroe | imagen">
+        </mat-card>
+    </div>
+</div>

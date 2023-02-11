@@ -8,13 +8,7 @@ import { switchMap } from "rxjs/operators";
 @Component({
   selector: 'app-heroe',
   templateUrl: './heroe.component.html',
-  styles: [`
-    img {
-      
-      width:100%; 
-      border-radius: 20%;
-    }
-  `]
+  styles: []
 })
 export class HeroeComponent implements OnInit{
   @Input() heroes!: Heroe ;

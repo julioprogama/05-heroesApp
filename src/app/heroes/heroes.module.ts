@@ -8,11 +8,12 @@ import { MaterialModule } from '../material/material.module';
 
 import { AgregarComponent } from './pages/agregar/agregar.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
+import { DialogoComponent } from './components/confirmacion/dialogo.component';
 import { HeroeComponent } from './pages/heroe/heroe.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ListadoComponent } from './pages/listado/listado.component';
 import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.component';
+import { HomeComponent } from './pages/home/home.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
+import { ListadoComponent } from './pages/listado/listado.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     HomeComponent,
     ListadoComponent,
     HeroeTarjetaComponent,
-    ImagenPipe
+    ImagenPipe,
+    DialogoComponent
   ],
   imports: [
     CommonModule,

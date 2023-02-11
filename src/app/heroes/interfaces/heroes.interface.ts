@@ -5,7 +5,7 @@ export interface Heroe {
     alter_ego:        string;
     first_appearance: string;
     characters:       string;
-    alt_ing?:         string; //path donde se encuetra la imagen a establecer
+    alt_img?:         string; //path donde se encuetra la imagen a establecer
 }
 
 export enum Publisher {
