@@ -12,24 +12,27 @@ import { HeroesService } from '../../services/heroes.service';
 export class BuscarComponent {
   termino: string = '';
   heroes: Heroe[] = [];
-  heroe!: Heroe;
+  heroeseleccionado: Heroe| undefined;
 
-  mensaje: boolean = true;
+  constructor( private heroeService: HeroesService){ }
 
-  constructor( private heroeService: HeroesService){
 
-  }
   buscando(){
-    this.heroeService.getSugerencias( this.termino )
-      .subscribe( heroe => this.heroes = heroe )
-      if (!this.heroes){
-        this.mensaje = false;
-      }
+    this.heroeService.getSugerencias( this.termino.trim() ).subscribe( heroe => this.heroes = heroe );
   }
 
   opcionSelecionada (event: MatAutocompleteSelectedEvent){
+    
+    if (!event.option.value){
+      this.heroeseleccionado =undefined;
+      return;
+    }
+    
     const hero:Heroe = event.option.value;
+    
     this.termino = hero.superhero;
-    this.heroeService.getHeroeId( hero.id! ).subscribe( heroe => this.heroe = heroe );
+    this.heroeService.getHeroeId( hero.id! ).subscribe( heroe => this.heroeseleccionado = heroe );
+    
+
   }
 }

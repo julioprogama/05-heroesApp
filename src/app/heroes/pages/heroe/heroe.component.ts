@@ -17,7 +17,7 @@ import { switchMap } from "rxjs/operators";
   `]
 })
 export class HeroeComponent implements OnInit{
-  @Input() heroes!: Heroe;
+  @Input() heroes!: Heroe ;
 
   constructor( private activateRoute: ActivatedRoute,
                private heroeService:HeroesService,
@@ -26,7 +26,7 @@ export class HeroeComponent implements OnInit{
   ngOnInit(): void {
     this.activateRoute.params
     .pipe( switchMap(  ({ id }) => this.heroeService.getHeroeId( id ) ) ) 
-    .subscribe( heroe => this.heroes = heroe ) 
+    .subscribe( (heroe:Heroe) => this.heroes = heroe ); 
   }
 
   regresar(){
